@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import { httpServer } from "./app";
 import { env } from "./config/env";
 import { logger } from "./utils/logger";
+import "./jobs/scrapeJob";
 
 async function startServer() {
   try {
