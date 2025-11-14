@@ -1,0 +1,41 @@
+import { Request, Response, NextFunction } from "express";
+import { ZodError } from "zod";
+import { logger } from "../utils/logger";
+
+export class AppError extends Error {
+  constructor(public statusCode: number, message: string) {
+    super(message);
+    this.name = "AppError";
+  }
+}
+
+export const errorHandler = (
+  error: Error | ZodError | AppError,
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  logger.error("Error:", error);
+
+  if (error instanceof AppError) {
+    return res.status(error.statusCode).json({
+      status: "error",
+      message: error.message,
+    });
+  }
+
+  if (error instanceof ZodError) {
+    return res.status(400).json({
+      status: "error",
+      message: "Validation error",
+      errors: error.issues,
+    });
+  }
+
+  return res.status(500).json({
+    status: "error",
+    message: "Internal server error",
+  });
+};
+
+export default errorHandler;
