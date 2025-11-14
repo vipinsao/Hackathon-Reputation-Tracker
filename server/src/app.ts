@@ -38,7 +38,7 @@ io.on("connection", (socket) => {
 app.set("io", io);
 
 // Routes
-app.get("/health", (req: Request, res: Response) => {
+app.get("/health", (_req: Request, res: Response) => {
   res.json({ status: "ok", timestamp: new Date() });
 });
 

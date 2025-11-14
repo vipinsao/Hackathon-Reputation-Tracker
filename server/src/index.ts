@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { app, httpServer } from "./app";
+import { httpServer } from "./app";
 import { env } from "./config/env";
 import { logger } from "./utils/logger";
 

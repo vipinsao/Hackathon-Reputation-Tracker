@@ -11,9 +11,9 @@ export class AppError extends Error {
 
 export const errorHandler = (
   error: Error | ZodError | AppError,
-  req: Request,
+  _req: Request,
   res: Response,
-  next: NextFunction
+  _next: NextFunction
 ) => {
   logger.error("Error:", error);
 
