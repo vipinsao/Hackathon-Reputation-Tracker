@@ -10,7 +10,7 @@ async function startServer() {
     await mongoose.connect(env.MONGODB_URI);
     logger.info("✅ MongoDB connected");
 
-    // Start server
+    // Start server added
     const PORT = env.PORT;
     httpServer.listen(PORT, () => {
       logger.info(`🚀 Server running on port ${PORT}`);
