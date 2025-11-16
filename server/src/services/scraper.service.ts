@@ -35,7 +35,7 @@ export class ScraperService {
           brand,
           content: `Great experience with ${brand}!`,
           source: "twitter",
-          sourceUrl: "https://twitter.com/user/status/123",
+          sourceUrl: "https://x.com/tesla/",
           author: "@user",
           engagementMetrics: { likes: 10, shares: 2, comments: 1 },
           fetchedAt: new Date(),
