@@ -57,7 +57,7 @@ All of this updates in real-time, so new mentions appear on your dashboard momen
 
 ## System Architecture
 
-![System Workflow](https://user-gen-media-assets.s3.amazonaws.com/seedream_images/f057a6f3-12c9-4849-9f96-8938cbc6771c.png)
+![System Workflow](/client/workflow.png)
 
 The diagram shows the complete flow:
 1. Data sources continuously generate brand mentions
@@ -69,7 +69,7 @@ The diagram shows the complete flow:
 
 ## Dashboard Preview
 
-![Dashboard UI](https://user-gen-media-assets.s3.amazonaws.com/seedream_images/44f17c1d-7bec-4152-90ff-d6d8f721a473.png)
+![Dashboard UI](/client/dashboard.png)
 
 **What you see in the dashboard:**
 
