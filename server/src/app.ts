@@ -7,6 +7,7 @@ import { env } from "./config/env";
 import { logger } from "./utils/logger";
 import mentionRoutes from "./routes/mention.routes";
 import errorHandler from "./middleware/errorHandler";
+import { apiLimiter } from "./middleware/rateLimiter";
 
 const app: Express = express();
 const httpServer = createServer(app);
@@ -35,6 +36,8 @@ io.on("connection", (socket) => {
   });
 });
 
+// Apply rate limiting to all API routes
+app.use("/api/", apiLimiter);
 app.set("io", io);
 
 // Routes

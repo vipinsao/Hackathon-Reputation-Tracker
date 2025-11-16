@@ -49,15 +49,15 @@ export class ScraperService {
 
   private async scrapeHackerNews(brand: string): Promise<Partial<IMention>[]> {
     try {
-      const response = await axios.get("https://hn.algolia.com/api/v1/search", {
-        params: {
-          query: brand,
-          hitsPerPage: 10,
-          numericFilters: [
-            `created_at_i>${Math.floor(Date.now() / 1000) - 86400}`,
-          ],
-        },
-      });
+      const response = await axios.get(
+        "https://hn.algolia.com/api/v1/search_by_date",
+        {
+          params: {
+            query: brand,
+            hitsPerPage: 10,
+          },
+        }
+      );
 
       return (response.data.hits || []).map((item: any) => ({
         brand,
