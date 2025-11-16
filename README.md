@@ -71,12 +71,30 @@ The diagram shows the complete flow:
 
 ![Dashboard UI](client/public/dashboard.png)
 
-**What you see in the dashboard:**
+### Top Section - Brand Monitoring
+- **Search Bar**: Search for any brand in real-time
+- **Sidebar Navigation**: Switch between Overview, Trends, Alerts, and Analytics
+- **Current Brand Display**: Shows which brand you're monitoring
 
-- **Metric Cards** at the top: Shows "150 Total Mentions", "105 Positive", "45 Negative" at a glance
-- **Sentiment Distribution Chart**: A pie chart showing you the ratio - if 70% of mentions are positive, you know your brand is being well-received
-- **24-Hour Trend Graph**: A line chart showing how sentiment has moved throughout the day - this helps you spot when people start talking positively or negatively about something
-- **Recent Mentions Feed**: The actual comments people made, with usernames, timestamps, and engagement metrics - so you can read the context yourself
+### Metric Cards (First Row)
+- **Total Mentions**: 3 mentions found (with +12.5% trend)
+- **Positive Sentiment**: 0 positive mentions (with +8.2% trend)
+- **Negative Sentiment**: 0 negative mentions (with -5.3% trend)
+- **Engagement Rate**: 8.45% overall engagement (with +3.2% trend)
+
+### Engagement Metrics (Second Row)
+- **Total Likes**: 45,230 likes across all mentions (with +12.5% trend)
+- **Comments**: 8,945 total comments (with +8.2% trend)
+- **Shares**: 3,420 times shared (with +15.3% trend)
+- **Views**: 234.5K total views (with +22.1% trend)
+
+Each metric card shows:
+- The current count/percentage
+- A colored icon for quick visual reference
+- Trend indicator (green for positive, red for negative)
+- Percentage change from previous period
+
+This gives you an at-a-glance understanding of how your brand is being received and engaged with across all platforms.
 
 ## Tech Stack
 
