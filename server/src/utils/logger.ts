@@ -1,37 +1,44 @@
 import winston from "winston";
 import DailyRotateFile from "winston-daily-rotate-file";
 
-const fileRotateTransport = new DailyRotateFile({
-  filename: "logs/application-%DATE%.log",
-  datePattern: "YYYY-MM-DD",
-  maxFiles: "14d",
-  level: "info",
-});
+const isProduction = process.env.NODE_ENV === "production";
 
-const errorFileTransport = new DailyRotateFile({
-  filename: "logs/error-%DATE%.log",
-  datePattern: "YYYY-MM-DD",
-  maxFiles: "30d",
-  level: "error",
-});
+const transports: winston.transport[] = [
+  new winston.transports.Console({
+    format: winston.format.combine(
+      winston.format.colorize(),
+      winston.format.simple()
+    ),
+  }),
+];
 
-const logger = winston.createLogger({
-  level: process.env.NODE_ENV === "development" ? "debug" : "info",
+// Only enable file logging in development (NOT on Render)
+if (!isProduction) {
+  transports.push(
+    new DailyRotateFile({
+      filename: "logs/application-%DATE%.log",
+      datePattern: "YYYY-MM-DD",
+      maxFiles: "14d",
+      level: "info",
+    })
+  );
+
+  transports.push(
+    new DailyRotateFile({
+      filename: "logs/error-%DATE%.log",
+      datePattern: "YYYY-MM-DD",
+      maxFiles: "30d",
+      level: "error",
+    })
+  );
+}
+
+export const logger = winston.createLogger({
+  level: isProduction ? "info" : "debug",
   format: winston.format.combine(
     winston.format.timestamp(),
     winston.format.errors({ stack: true }),
     winston.format.json()
   ),
-  transports: [
-    new winston.transports.Console({
-      format: winston.format.combine(
-        winston.format.colorize(),
-        winston.format.simple()
-      ),
-    }),
-    fileRotateTransport,
-    errorFileTransport,
-  ],
+  transports,
 });
-
-export { logger };
