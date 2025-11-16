@@ -148,7 +148,7 @@ Most brand monitoring tools are expensive SaaS products costing hundreds per mon
 - **Scalable**: Built to handle millions of mentions
 - **Production-Ready**: Proper error handling, logging, security
 
-## Built In 36 Hours
+## Built In 48 Hours
 
 For a hackathon project completed in 48 hours, this includes:
 - Full-stack application (backend + frontend)
